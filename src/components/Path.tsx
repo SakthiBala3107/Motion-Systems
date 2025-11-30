@@ -8,10 +8,9 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 const Path = () => {
     const svgRef = useRef<SVGSVGElement | null>(null)
     const pathRef = useRef<SVGPathElement | null>(null)
-    const pathRef1 = useRef<SVGPathElement | null>(null)
 
     useGSAP(() => {
-        if (!pathRef.current) return
+        if (!svgRef.current || !pathRef.current) return
 
         const length = pathRef.current.getTotalLength()
         console.log("PATH LENGTH →", length)
@@ -39,7 +38,7 @@ const Path = () => {
 
     return (
         <div className="min-h-[300vh] bg-black p-10">
-            <h1 className="text-white text-4xl mb-40">Scroll Down 👇</h1>
+            <h1 className="text-white text-4xl mb-40">Scroll Down </h1>
 
             <svg
                 ref={svgRef}
